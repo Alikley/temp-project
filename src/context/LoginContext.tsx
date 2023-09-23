@@ -15,7 +15,7 @@ function reducer(state: boolean, action: Action): boolean {
     case "logout":
       return false;
     default:
-      throw new Error();
+      throw new Error("Invalid Case");
   }
 }
 
@@ -36,8 +36,7 @@ function LoginProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <LoginContext.Provider value={userLog}>
-
-      {children}
+        {children}
     </LoginContext.Provider>
     
   );

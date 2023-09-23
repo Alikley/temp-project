@@ -5,6 +5,7 @@ import App from './App';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 import LoginProvider from './context/LoginContext';
+import { BrowserRouter } from 'react-router-dom';
 
 const client = new QueryClient();
 
@@ -14,9 +15,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={client}>
+      <BrowserRouter>
       <LoginProvider>
         <App />
       </LoginProvider>
+      </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>
 );
