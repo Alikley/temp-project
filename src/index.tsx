@@ -6,6 +6,7 @@ import App from './App';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import LoginProvider from './context/LoginContext';
 import { BrowserRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const client = new QueryClient();
 
