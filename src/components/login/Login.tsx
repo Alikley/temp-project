@@ -1,5 +1,9 @@
 import { useForm } from 'react-hook-form'
-
+import { LoginContext } from '../../context/LoginContext';
+import { useContext } from 'react';
+interface UserLog {
+  login: () => void;
+}
 interface DataBase{
   email:string;
   password:string;
@@ -9,10 +13,13 @@ interface DataBase{
 
 
 function Login() {
+
+  const userLog: UserLog = useContext(LoginContext);
   const form = useForm<DataBase>({
     defaultValues:{
       email:"",
-      password:""
+      password:"",
+      
     },
     mode:'onTouched'
   })
@@ -25,6 +32,7 @@ function Login() {
     // });
     
     // let data = await response.text();
+    userLog.login();
     console.log(dataa);
     
   }

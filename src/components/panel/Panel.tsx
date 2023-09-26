@@ -1,10 +1,15 @@
-import React from 'react'
+import { LoginContext } from '../../context/LoginContext';
+import { useContext } from 'react';
+interface UserLog {
+  logout: () => void;
+}
 
-type Props = {}
-
-const Panel = (props: Props) => {
+const Panel = () => {
+  const userLog: UserLog = useContext(LoginContext);
   return (
-    <div>Panel</div>
+    <div>
+      <button onClick={userLog.logout}>logOUT</button>
+    </div>
   )
 }
 
