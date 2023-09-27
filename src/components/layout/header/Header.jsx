@@ -1,13 +1,71 @@
 import { NavLink } from 'react-router-dom';
 import {Container,Form,Nav,Navbar,NavDropdown} from 'react-bootstrap';
 
-import { LoginContext } from '../../../context/LoginContext';
-import { useContext } from 'react';
-import { FiHeart,FiUser,FiLogOut } from "react-icons/fi";
 import './Header.scss'
-function Header() {
+import { LoginContext } from '../../../context/LoginContext';
+import { useContext, useState } from 'react';
+import { FiHeart,FiUser,FiLogOut } from "react-icons/fi";
+import  Drawer  from '@mui/material/Drawer';
+import  Badge  from '@mui/material/Badge';
+import { AddShoppingCart } from '@mui/icons-material';
+import {StyledButton} from'../../shop-cart/App.styled';
+import Cart from '../../shop-cart/cart/Cart';
+export interface CardItemType{
+  id:number;
+  category:string;
+  description:string;
+  image:string;
+  price:number;
+  title:string
+  amount:number
+ }
+ interface StateType{
+  cardItems:CardItemType[]
+  setCardItems:React.Dispatch<React.SetStateAction<CardItemType[]>>
+ }
+function Header({cardItems,setCardItems}:StateType) {
+  const [cartOpen, setCartOpen] = useState(false)
+
+
   const userLog = useContext(LoginContext)
 
+
+  
+  
+  
+  const getTotalItems = (items: CardItemType[]) => {
+    if (!items) return 0; // Add a check to handle undefined items
+    
+    return items.reduce((ack: number, item: CardItemType) => ack + item.amount, 0);
+  };
+    const handleAddToCart = (clickedItem:CardItemType) =>{
+    setCardItems(prev => {
+      const isItemcart = prev.find(item => item.id === clickedItem.id)
+
+      if(isItemcart){
+        return prev.map(item => (
+          item.id === clickedItem.id?
+          {...item, amount: item.amount +1}
+          : item
+        ))
+
+      }
+      return [...prev, {...clickedItem, amount:1}]
+    })
+  };
+
+  const handleRemoveFromCart = (id:number) => {
+    setCardItems(prev => (
+      prev.reduce((ack , item) => {
+        if(item.id === id){
+          if(item.amount === 1) return ack;
+          return [...ack, {...item,amount:item.amount - 1}]
+        }else{
+          return [...ack,item]
+        }
+      }, [] as CardItemType[])
+    ))
+  };
 
   return (
     <div>
@@ -31,22 +89,22 @@ function Header() {
           >
              <NavDropdown title="Shop" id="navbarScrollingDropdown">
               <div style={{display:"grid",columnGap:"50px"}}>
-                <NavDropdown.Item href="#action3"><NavLink>Women's Collection</NavLink></NavDropdown.Item>
+                <NavDropdown.Item href="#action3"><NavLink to="/">Women's Collection</NavLink></NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action4">
-                  <NavLink>Dresses</NavLink>
+                  <NavLink to="/">Dresses</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action5">
-                  <NavLink>Blouses & Shirts</NavLink>
+                  <NavLink to="/">Blouses & Shirts</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action5">
-                  <NavLink>T-shirts</NavLink>
+                  <NavLink to="/">T-shirts</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action5">
-                  <NavLink>Rompers</NavLink>
+                  <NavLink to="/">Rompers</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action5">
-                  <NavLink>Bras & Panties</NavLink>
+                  <NavLink to="/">Bras & Panties</NavLink>
                 </NavDropdown.Item>
               <div>
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -98,9 +156,30 @@ function Header() {
                 />
               </Form>
             </div>
-          <NavLink>
+          <NavLink to="/">
             <FiHeart />
           </NavLink>
+
+
+
+
+          <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
+          <Cart 
+          cartItem={cardItems} 
+          addToCart={handleAddToCart}
+          removeFromCart={handleRemoveFromCart}
+          />
+        </Drawer>
+        <StyledButton onClick={() => setCartOpen(true)} >
+            <Badge badgeContent={getTotalItems(cardItems)} color='error'>
+              <AddShoppingCart />
+            </Badge>
+        </StyledButton>
+
+
+
+
+
 
           {
               userLog.isLogin?
