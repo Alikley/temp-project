@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
-import './scss/StoreItems.scss'
+import './scss/shop.scss'
 import { useState } from 'react';
 
 const ITEM_HEIGHT = 48;
@@ -67,7 +67,7 @@ const Shop = () => {
               <div className='d-flex align-items-center justify-content-between product'>
                   <div className='total-products'>
                     <p>
-                      <span></span>  
+                      <span>200 </span>  
                       products found
                     </p>
                   </div>
@@ -104,9 +104,9 @@ const Shop = () => {
 
 
 
-        <Row md={3} xs={1} lg={3} className='g-3'>
+        <Row md={2} xs={2} lg={3} className='g-0'>
             {storeitems.map(item => (
-                <Col key={item.id}>
+                <Col key={item.id} className='col-12 col-sm-6 col-lg-3 '>
                     <StoreItems {...item} />
                 </Col>
             ))}

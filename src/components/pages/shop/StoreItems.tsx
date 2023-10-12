@@ -1,4 +1,5 @@
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import  './scss/storeItems.scss'
+import { Button, Card} from 'react-bootstrap';
 import { formatCurrency } from '../../../utilities/formatCurrency';
 import { useShopingCart } from '../../../context/ShopingCartContext';
 // https://preview.colorlib.com/#essence
@@ -13,28 +14,18 @@ const StoreItems = ({id,name,price,imgURL}: storeitemsProps) => {
   const {getItemQuantity,increaseCartQuantity,decreaseCartQuantity,removeFromCart} = useShopingCart()
   const quantity = getItemQuantity(id)
   return (
-    <div>
-
-     
-
-
-
-
-
-
-
-
-
-        <Card className='h-100' >
-            <Card.Img variant='top' src={imgURL} height="200px" style={{objectFit:"cover"}} />
+    <div className='storeItems'>
+        <Card className='cart-item'>
+            <Card.Img variant='top' src={imgURL} className='img-item' />
              <Card.Body className='d-flex flex-column'>
                 <Card.Title className=' justify-content-space-between align-items-baseline mb-4'>
                     <span className='fs-2'>{name}</span>
-                    <span className='ms-2 text-muted'>{formatCurrency(price)}</span>
+                    <br />
+                    <span className='ms-2 text-muted price-item'>{formatCurrency(price)}</span>
                 </Card.Title>
                 <div className="mt-auto">
                   {quantity === 0 ? (
-                      <Button className='w-100' onClick={() => increaseCartQuantity(id)}>+ Add To Cart</Button>
+                      <Button className='button-item' onClick={() => increaseCartQuantity(id)}>Add To Cart</Button>
                   ) :( <div className='d-flex align-items-center flex-column' style={{gap:".5rem"}}>
                           <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
                             <div>

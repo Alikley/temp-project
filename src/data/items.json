@@ -3,13 +3,13 @@
         "id":1,
         "name":"book",
         "price":10.99,
-        "imgURL":"../../public/image/item0001.jpg"
+        "imgURL":"https://preview.colorlib.com/theme/essence/img/product-img/product-2.jpg"
     },
     {
         "id":2,
         "name":"computer",
         "price":10.99,
-        "imgURL":"../../public/image/item0002.jpg"
+        "imgURL":"https://preview.colorlib.com/theme/essence/img/product-img/product-3.jpg"
     },
     {
         "id":3,
