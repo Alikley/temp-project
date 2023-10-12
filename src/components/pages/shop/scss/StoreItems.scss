@@ -1,0 +1,35 @@
+.shop{
+  .CArd{
+    border: none;
+    position: relative;
+    z-index: 1;
+ 
+      .IMG{
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 140px;
+      }
+  }
+    .product{
+      .total-products p{
+        margin-bottom: 0;
+        font-size: 12px;
+        font-weight: 600;
+        color: #000000;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+      }
+      .Product-sort p{
+        margin-bottom: 0;
+        font-size: 12px;
+        font-weight: 600;
+        color: #000000;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+        margin-right: 15px;
+      }
+    }
+
+}

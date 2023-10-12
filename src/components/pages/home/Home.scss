@@ -1,0 +1,113 @@
+$hover-color: #f7007b;
+
+.home{
+    .back{
+        border: none;
+        position: relative;
+        .tit1{
+            position: absolute;
+            font-size: 18px;
+            color: #858282;
+            left: 15rem;
+            top: 16rem;
+        }
+        .tit2{
+            position: absolute;
+            font-size: 4rem;
+            color: #000000;
+            left: 15rem;
+            top: 18.5rem;
+        }
+        Button{
+            position: absolute;
+            color: #000000;
+            left: 15rem;
+            top: 26rem;
+            display: inline-block;
+            min-width: 170px;
+            height: 50px;
+            color: #ffffff;
+            border: none;
+            border-radius: 0;
+            padding: 0 40px;
+            text-transform: uppercase;
+            font-size: 12px;
+            line-height: 50px;
+            background-color: #0315ff;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+        Button:hover{
+            background-color: $hover-color;
+        }
+    }
+
+
+
+    .CARD{
+        border: none;
+        margin: 55px 18px 0 0;
+            .img{
+                opacity: 0.5;
+            }
+                .tit{
+                    position: absolute;
+                    display: block;
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: #000000;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    left: 120px;
+                    top: 100px;
+                }
+                .tit:hover{
+                    color: #0315ff;
+                    transition: 0.4s ease-in-out;
+                }
+    }
+
+
+    .card-sec{
+        border: none;
+        margin: 70px 18px 0 0;
+            h6{
+                font-size: 24px;
+                color: #dc0345;
+                position: absolute;
+                left: 45rem;
+                top: 11.5rem;
+            }
+            h2{
+                font-size: 60px;
+                color: #000000;
+                position: absolute;
+                left: 45rem;
+                top: 15rem;
+            }
+            Button{
+                position: absolute;
+                left: 45rem;
+                top: 22rem;
+                display: inline-block;
+                min-width: 170px;
+                height: 50px;
+                color: #ffffff;
+                border: none;
+                border-radius: 0;
+                padding: 0 40px;
+                text-transform: uppercase;
+                font-size: 12px;
+                line-height: 50px;
+                background-color: #0315ff;
+                letter-spacing: 1.5px;
+                font-weight: 600;
+            }
+            Button:hover{
+                background-color: $hover-color;
+                transition: 0.5s ease-in-out;
+            }
+    }
+
+
+}
