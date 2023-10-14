@@ -104,7 +104,7 @@ const Home = () => {
               responsive={responsive}
               infinite={true}
               autoPlay={true}
-              autoPlaySpeed={600}
+              autoPlaySpeed={500}
               keyBoardControl={true}
               customTransition="all .5"
               transitionDuration={500}
