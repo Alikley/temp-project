@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import LoginProvider from './context/LoginContext';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-multi-carousel/lib/styles.css";
 
 import { ShoppingCartProvider } from './context/ShopingCartContext';
 
