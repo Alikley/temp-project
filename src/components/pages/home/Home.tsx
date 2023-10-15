@@ -3,6 +3,8 @@ import { Card,Col,Container, Row,Button } from 'react-bootstrap'
 import Carousel from "react-multi-carousel";
 import { Image } from 'react-bootstrap'
 import storeitems from '../../../data/items.json'
+import { formatCurrency } from '../../../utilities/formatCurrency';
+import { useShopingCart } from '../../../context/ShopingCartContext';
 
 
 const responsive = {
@@ -25,6 +27,8 @@ const responsive = {
 
 
 const Home = () => {
+  const {getItemQuantity,increaseCartQuantity,decreaseCartQuantity,removeFromCart} = useShopingCart()
+  const quantity = storeitems.map(item => getItemQuantity(item.id));
   
   return (
     <div className='home'>
@@ -96,7 +100,7 @@ const Home = () => {
         </Row>
       </Container>
 
-        <div>
+        <div className='crousel-item'>
               <Carousel
               ssr
               partialVisbile
@@ -104,19 +108,44 @@ const Home = () => {
               responsive={responsive}
               infinite={true}
               autoPlay={true}
-              autoPlaySpeed={500}
+              autoPlaySpeed={4000}
               keyBoardControl={true}
               customTransition="all .5"
               transitionDuration={500}
-              
             >
               {storeitems.map(image => {
                 return (
-                  <Image
-                    draggable={false}
-                    style={{ width: "70%", height: "100%" }}
-                    src={image.imgURL}
-                  />
+                  <Card className='cart-item' style={{ width: "70%", height: "100%" }}>
+                  <Card.Img variant='top' src={image.imgURL} className='img-item' />
+                   <Card.Body className='d-flex flex-column'>
+                      <Card.Title className=' justify-content-space-between align-items-baseline mb-4'>
+                          <span className='fs-2'>{image.name}</span>
+                          <br />
+                          <span className='ms-2 text-muted price-item'>{formatCurrency(image.price)}</span>
+                      </Card.Title>
+                      <div className="mt-auto">
+                        {quantity? (
+                            <Button className='button-item' onClick={() => increaseCartQuantity(image.id)}>Add To Cart</Button>
+                        ) :( <div className='d-flex align-items-center flex-column' style={{gap:".5rem"}}>
+                                <Button onClick={() => decreaseCartQuantity(image.id)}>-</Button>
+                                  <div>
+                                    <span className='fs-3'>{quantity}</span> in Cart
+                                  </div>
+                                <Button onClick={() => increaseCartQuantity(image.id)}>+</Button>
+                              <div className='d-flex align-items-center justify-content-center' style={{gap:".5rem"}}>
+                                <Button variant='danger' size='sm' onClick={() => removeFromCart(image.id)}>Remove</Button>
+                              </div>
+                          </div>
+                          )}
+                      </div>
+                   </Card.Body>
+              </Card>
+                  // <Image
+                  //   draggable={false}
+                  //   style={{ width: "70%", height: "100%" }}
+                  //   src={image.imgURL}
+                  //   className='image-item'
+                  // />
                 );
               })}
             </Carousel>

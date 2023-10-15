@@ -106,7 +106,7 @@ function Header() {
               </Form>
             </div>
           <NavLink to="/">
-            <FiHeart style={{color:"#000",transform:"translateX(-65px)",borderLeft:"1px solid #000",fontSize:"1.5rem"}} />
+            <FiHeart style={{color:"#000",transform:"translateX(-65px)",fontSize:"1.5rem"}} />
           </NavLink>
 
 
@@ -118,7 +118,7 @@ function Header() {
 
           {
               userLog.isLogin?
-              <NavLink to="/panel" style={{color:"#000",transform:"translateX(-30px)",borderLeft:"1px solid #000",fontSize:"1.5rem"}}>
+              <NavLink to="/panel" style={{color:"#000",transform:"translateX(-30px)",fontSize:"1.5rem"}}>
                <NavDropdown title={<FiLogOut  />} id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3"><button onClick={userLog.logout}>logOUT</button></NavDropdown.Item>
               <NavDropdown.Divider />
@@ -134,7 +134,7 @@ function Header() {
               </NavLink>
 
               :
-              <NavLink to="/login" style={{color:"#000",transform:"translateX(-30px)",borderLeft:"1px solid #000",fontSize:"1.5rem"}}><FiUser />
+              <NavLink to="/login" style={{color:"#000",transform:"translateX(-30px)",fontSize:"1.5rem"}}><FiUser />
               
               
               </NavLink>

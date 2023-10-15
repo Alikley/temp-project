@@ -110,4 +110,38 @@ $hover-color: #f7007b;
     }
 
 
+    .cart-item{
+        position: relative;
+        left: 45vh;
+        width: 300px;
+        border: none;
+        background: none;
+        .img-item{
+          height:415px;
+          object-fit:cover;
+          width:300px;
+        }
+        .price-item{
+          position: absolute;
+          left: 7px;
+          bottom: 4px;
+        }
+        .button-item{
+          display: none;
+        }
+      }
+      .cart-item:hover{
+        position: relative;
+        .img-item{
+          opacity: 0.6;
+          transition: 0.2s ease-in;
+        }
+        .button-item{
+          position: absolute;
+          display: block;
+          bottom: 16vh;
+          left: 90px;
+        }
+      }
+
 }
