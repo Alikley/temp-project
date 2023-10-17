@@ -142,8 +142,8 @@ const Shop = () => {
         </Row>
 
           <div>
-            <h6 className='mb-30'style={{position:"absolute",bottom:"30.5rem",left:"50px",fontWeight:"900"}}>Catagories</h6>
-            <Nav defaultActiveKey="/home" className="flex-column" style={{position:"absolute",bottom:"3rem",left:"50px"}}>
+            <h6 className='mb-30'style={{position:"absolute",bottom:"38.5rem",left:"50px",fontWeight:"900"}}>Catagories</h6>
+            <Nav defaultActiveKey="/home" className="flex-column" style={{position:"absolute",bottom:"11rem",left:"50px"}}>
               <h5 style={{fontSize:"16px"}}>clothing</h5>
                 <Nav.Link as={NavLink} to="/home">All</Nav.Link>
                 <Nav.Link as={NavLink} to="/home">Bodysuits</Nav.Link>
@@ -158,25 +158,24 @@ const Shop = () => {
 
             </Nav>
           </div>
-          <div style={{position:"absolute",bottom:"2rem"}}>
+          <div style={{position:"absolute",bottom:"10rem"}}>
             <Nav defaultActiveKey="/home" className="flex-column" style={{position:"absolute",bottom:"",left:"50px"}}>
               <h5 style={{fontSize:"16px"}}>SHOSE</h5>
                 <Nav.Link as={NavLink} to="/home">ACCESSORIES</Nav.Link>
             </Nav>
           </div>
 
-          <Box sx={{ width: 200,marginLeft:"50px" }}>
-            
-      <Slider
-        getAriaLabel={() => 'Minimum distance'}
-        value={value1}
-        onChange={handleChange1}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-        disableSwap
-      />
-      ${value1}
-    </Box>
+              <Box sx={{ width: 200,marginLeft:"50px",position:"absolute",bottom:"0rem" }}>  
+                <Slider
+                  getAriaLabel={() => 'Minimum distance'}
+                  value={value1}
+                  onChange={handleChange1}
+                  valueLabelDisplay="auto"
+                  getAriaValueText={valuetext}
+                  disableSwap
+                />
+                ${value1}
+              </Box>
     </div>
   )
 }

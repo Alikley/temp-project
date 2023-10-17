@@ -13,9 +13,10 @@
       }
   }
     .product{
+      margin: 0 0 18px;
       .total-products p{
         position: relative;
-        left: 30vh;
+        left: 12vh;
         margin-bottom: 0;
         font-size: 12px;
         font-weight: 600;
@@ -30,6 +31,10 @@
         color: #212dcd;
         text-transform: uppercase;
         letter-spacing: 0.75px;
+      }
+      .Product-sort{
+        position: relative;
+        left: 77px;
       }
 
     }
