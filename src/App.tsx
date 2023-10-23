@@ -7,6 +7,7 @@ import Layout from './components/layout/Layout';
 import Login from './components/pages/login/Login';
 import Panel from './components/pages/panel/Panel';
 import Shop from "./components/pages/shop/Shop";
+import ProductDetails from "./components/pages/product/ProductDetails";
 
 
 
@@ -19,6 +20,8 @@ function App() {
       <Route  element={<Layout />}>
        <Route index path='/' element={<Home  />} />
        <Route index path='/Shop' element={<Shop  />} />
+       <Route index path='/productDetails' element={<ProductDetails  />} />
+
 
        <Route index path='/login' element={
          userLog.isLogin?

@@ -13,7 +13,7 @@ function Header() {
   const userLog = useContext(LoginContext)
   
   return (
-    <div>
+    <div className='navbar-style'>
            {/* <NavLink to="/">خانه</NavLink>
             {
               userLog.isLogin?
@@ -32,64 +32,20 @@ function Header() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-             <NavDropdown title="Shop" id="navbarScrollingDropdown">
-              <div style={{display:"grid",columnGap:"50px"}}>
-                <NavDropdown.Item href="#action3" to="/" as={NavLink} >Women's Collection</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action4" to="/" as={NavLink}>
-                  Dresses
-                </NavDropdown.Item>
-
-                <NavDropdown.Item href="#action5" to="/" as={NavLink}>
-                  Blouses & Shirts
-                </NavDropdown.Item>
-
-                <NavDropdown.Item href="#action5" to="/" as={NavLink}>
-                  T-shirts
-                </NavDropdown.Item>
-
-                <NavDropdown.Item href="#action5" to="/" as={NavLink}>
-                  Rompers
-                </NavDropdown.Item>
-
-                <NavDropdown.Item href="#action5" to="/" as={NavLink}>
-                  Bras & Panties
-                </NavDropdown.Item>
-              <div>
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </div>
-              <div>
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </div>
-              </div>
-            </NavDropdown>
+            <Nav.Link to="/shop" as={NavLink}>Shop</Nav.Link>
 
             <NavDropdown title="Pages" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item to="/" as={NavLink} style={{textDecoration:"none",background:"#fff",color:"#000"}}>Home</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action4">
-                Another action
+              <NavDropdown.Item to="/productDetails" as={NavLink} style={{textDecoration:"none",background:"#fff",color:"#000"}}>
+                Product Details
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
-                Something else here
+              <NavDropdown.Divider />
+              <NavDropdown.Item to="/" as={NavLink} style={{textDecoration:"none",background:"#fff",color:"#000"}}>
+                Checkout
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link to="/shop" as={NavLink}>Shop</Nav.Link>
             <Nav.Link href="#" >
               Blog
             </Nav.Link>
